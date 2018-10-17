@@ -1,7 +1,5 @@
 import axios from "axios";
 
-const ARTISTS_API_ENDPOINT = "https://api.artsy.net/api/artists";
-
 export default async function getArtist(token, url) {
   try {
     const response = await axios.get(url, {

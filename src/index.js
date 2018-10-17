@@ -6,6 +6,7 @@ global.URLSearchParams = URLSearchParams;
 
 import login from "./services/artsy/login";
 import createTweet from "./createTweet";
+import postStatus from "./services/twitter/postStatus";
 
 async function bot() {
   try {
@@ -14,7 +15,7 @@ async function bot() {
     if (tweet.text.length > 280) {
       console.error(JSON.stringify(tweet, null, 4));
     } else {
-      console.log(JSON.stringify(tweet, null, 4));
+      postStatus(tweet.text, tweet.image);
     }
   } catch (error) {
     console.error(error);
