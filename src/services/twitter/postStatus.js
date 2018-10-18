@@ -1,5 +1,5 @@
-import Twit from "twit";
-import downloadImage from "../../downloadImage";
+const Twit = require("twit");
+const downloadImage = require("../../downloadImage");
 
 const AestheteBot = new Twit({
   consumer_key: process.env.TWITTER_CONSUMER_KEY,
@@ -8,7 +8,7 @@ const AestheteBot = new Twit({
   access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
 });
 
-export default async function postStatus(status, image) {
+module.exports = async function postStatus(status, image) {
   const base64image = await downloadImage(image);
   AestheteBot.post("media/upload", { media_data: base64image }, (err, data) => {
     const mediaId = data.media_id_string;
@@ -32,4 +32,4 @@ export default async function postStatus(status, image) {
       }
     });
   });
-}
+};

@@ -1,12 +1,10 @@
-import "dotenv/config";
+require("dotenv").config();
 
-import { URLSearchParams } from "url";
+global.URLSearchParams = require("url").URLSearchParams;
 
-global.URLSearchParams = URLSearchParams;
-
-import login from "./services/artsy/login";
-import createTweet from "./createTweet";
-import postStatus from "./services/twitter/postStatus";
+const login = require("./services/artsy/login");
+const createTweet = require("./createTweet");
+const postStatus = require("./services/twitter/postStatus");
 
 async function bot() {
   try {

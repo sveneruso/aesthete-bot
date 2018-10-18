@@ -26,7 +26,7 @@ const appendHashtags = (tweet, category) =>
         .join(" ")
     : "");
 
-export {
+module.exports = {
   manipulateInfo,
   appendArtworkDate,
   appendMediumAndArtworkImageRights,

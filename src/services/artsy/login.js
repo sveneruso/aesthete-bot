@@ -1,8 +1,8 @@
-import axios from "axios";
+const axios = require("axios");
 
 const LOGIN_ENDPOINT = "https://api.artsy.net/api/tokens/xapp_token";
 
-export default async function login() {
+module.exports = async function login() {
   try {
     const response = await axios.post(
       LOGIN_ENDPOINT,
@@ -18,4 +18,4 @@ export default async function login() {
   } catch (error) {
     console.error(error);
   }
-}
+};

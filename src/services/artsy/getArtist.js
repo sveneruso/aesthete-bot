@@ -1,6 +1,6 @@
-import axios from "axios";
+const axios = require("axios");
 
-export default async function getArtist(token, url) {
+module.exports = async function getArtist(token, url) {
   try {
     const response = await axios.get(url, {
       headers: {
@@ -22,4 +22,4 @@ export default async function getArtist(token, url) {
   } catch (error) {
     console.error(error);
   }
-}
+};

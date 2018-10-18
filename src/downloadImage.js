@@ -1,6 +1,6 @@
-import axios from "axios";
+const axios = require("axios");
 
-export default async function downloadImage(url) {
+module.exports = async function downloadImage(url) {
   try {
     const response = await axios.get(url, {
       responseType: "arraybuffer"
@@ -10,4 +10,4 @@ export default async function downloadImage(url) {
   } catch (error) {
     console.error(error);
   }
-}
+};

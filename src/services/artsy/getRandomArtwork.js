@@ -1,8 +1,8 @@
-import axios from "axios";
+const axios = require("axios");
 
 const ARTWORKS_API_ENDPOINT = "https://api.artsy.net/api/artworks";
 
-export default async function getRandomArtwork(token) {
+module.exports = async function getRandomArtwork(token) {
   try {
     const response = await axios.get(ARTWORKS_API_ENDPOINT, {
       headers: {
@@ -43,4 +43,4 @@ export default async function getRandomArtwork(token) {
   } catch (error) {
     console.error(error);
   }
-}
+};

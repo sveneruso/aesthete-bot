@@ -1,20 +1,15 @@
-import getRandomArtwork from "./services/artsy/getRandomArtwork";
-import getArtist from "./services/artsy/getArtist";
-import {
-  appendArtworkDate,
-  appendHashtags,
-  appendMediumAndArtworkImageRights,
-  manipulateInfo
-} from "./utils";
+const getRandomArtwork = require("./services/artsy/getRandomArtwork");
+const getArtist = require("./services/artsy/getArtist");
+const utils = require("./utils");
 
-export default async function createTweet(token) {
+module.exports = async function createTweet(token) {
   const artwork = await getRandomArtwork(token);
   const artist = await getArtist(token, artwork.artistLink);
   return {
-    text: appendHashtags(
-      appendMediumAndArtworkImageRights(
-        appendArtworkDate(
-          `${manipulateInfo(artwork.title)} - ${artist.name}`,
+    text: utils.appendHashtags(
+      utils.appendMediumAndArtworkImageRights(
+        utils.appendArtworkDate(
+          `${utils.manipulateInfo(artwork.title)} - ${artist.name}`,
           artwork.date
         ),
         artwork.medium,
@@ -24,4 +19,4 @@ export default async function createTweet(token) {
     ),
     image: artwork.imageLink
   };
-}
+};
