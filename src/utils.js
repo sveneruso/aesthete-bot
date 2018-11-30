@@ -1,8 +1,5 @@
 const manipulateInfo = info =>
-  info
-    .split(" [")[0]
-    .split(" (")[0]
-    .split(" :")[0];
+  info.split(" [")[0].split(" (")[0].split(" :")[0];
 
 const appendArtworkDate = (tweet, date) =>
   date ? `${tweet} (${date})` : ["", tweet].join("");
